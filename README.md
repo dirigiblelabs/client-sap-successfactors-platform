@@ -28,7 +28,7 @@ var user = userClient.get("userId", User.queryBuilder()
 	.build()
 );
 
-response.println(user);
+response.println(JSON.stringify(user));
 ```
 
 > **Note:** In the examples SAP API Hub Sandbox system was used
