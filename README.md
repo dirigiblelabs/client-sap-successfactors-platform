@@ -64,6 +64,8 @@ userClientAsync.listAsync({
 		}
 	}
 );
+
+userClientAsync.execute();
 ```
 > **Note:** In the examples SAP API Hub Sandbox system was used
 
