@@ -31,6 +31,41 @@ var user = userClient.get("userId", User.queryBuilder()
 response.println(JSON.stringify(user));
 ```
 
+## Usage (Async):
+
+```javascript
+var response = require("http/v4/response");
+var User = require("sap-successfactors-platform/UserManagement/User");
+
+var userClientAsync = User.getClientAsync({
+	host: "https://sandbox.api.sap.com/successfactors",
+	headers: [{
+		name: "apikey",
+		value: "<YOUR-API-KEY>"
+	}]
+});
+
+userClientAsync.listAsync({
+	success: function(response, context) {
+		console.log("Users count: " + JSON.parse(response.text).d.results.length);
+	}
+}, User.queryBuilder()
+	.select(
+		User.USERNAME,
+		User.USER_ID,
+		User.FIRST_NAME,
+		User.LAST_NAME
+	)
+	.top(20)
+	.format("json")
+	.build(), {
+		context: {
+			data1: "Pass some contex parameters",
+			data2: "..."
+		}
+	}
+);
+```
 > **Note:** In the examples SAP API Hub Sandbox system was used
 
 ## Generator:
