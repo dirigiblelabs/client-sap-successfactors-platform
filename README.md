@@ -34,7 +34,6 @@ response.println(JSON.stringify(user));
 ## Usage (Async):
 
 ```javascript
-var response = require("http/v4/response");
 var User = require("sap-successfactors-platform/UserManagement/User");
 
 var userClientAsync = User.getClientAsync({
